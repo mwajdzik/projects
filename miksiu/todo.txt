@@ -1,0 +1,6 @@
+- tests for existing code
+- angular app build to one jar
+- complete model
+- actuator
+
+- security
