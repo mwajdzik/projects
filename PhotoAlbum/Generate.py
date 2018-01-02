@@ -10,7 +10,7 @@ bigItem = Template("""
             <div class="item">
                 <div class="item-content">
                     <div class="thumbnail">
-                        <img src="../img/$imgName1" class="$className1">
+                        <img src="./img/$imgName1" class="$className1">
                     </div>
                 </div>
             </div>""")
@@ -19,10 +19,10 @@ mediumItem = Template("""
             <div class="item">
                 <div class="item-content">
                     <div class="thumbnail">
-                        <img src="../img/$imgName1" class="$className1">
+                        <img src="./img/$imgName1" class="$className1">
                     </div>
                     <div class="thumbnail">
-                        <img src="../img/$imgName2" class="$className2">
+                        <img src="./img/$imgName2" class="$className2">
                     </div>
                 </div>
             </div>""")
@@ -31,15 +31,15 @@ mediumSmallItem = Template("""
             <div class="item">
                 <div class="item-content-half-top" style="height: 60%;">
                     <div class="thumbnail">
-                        <img src="../img/$imgName1" class="$className1">
+                        <img src="./img/$imgName1" class="$className1">
                     </div>
                 </div>
                 <div class="item-content-half-bottom" style="height: 40%;">
                     <div class="thumbnail">
-                        <img src="../img/$imgName3" class="$className3">
+                        <img src="./img/$imgName3" class="$className3">
                     </div>
                     <div class="thumbnail">
-                        <img src="../img/$imgName4" class="$className4">
+                        <img src="./img/$imgName4" class="$className4">
                     </div>
                 </div>
             </div>""")
@@ -48,18 +48,18 @@ smallItem = Template("""
             <div class="item">
                 <div class="item-content-half-top">
                     <div class="thumbnail">
-                        <img src="../img/$imgName1" class="$className1">
+                        <img src="./img/$imgName1" class="$className1">
                     </div>
                     <div class="thumbnail">
-                        <img src="../img/$imgName2" class="$className2">
+                        <img src="./img/$imgName2" class="$className2">
                     </div>
                 </div>
                 <div class="item-content-half-bottom">
                     <div class="thumbnail">
-                        <img src="../img/$imgName3" class="$className3">
+                        <img src="./img/$imgName3" class="$className3">
                     </div>
                     <div class="thumbnail">
-                        <img src="../img/$imgName4" class="$className4">
+                        <img src="./img/$imgName4" class="$className4">
                     </div>
                 </div>
             </div>""")
