@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Photo Album</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            margin-top: 50px;
+        }
+
+        .carousel {
+            background: black;
+            height: 825px;
+            width: 825px;
+            margin: 0 auto;
+        }
+
+        .item {
+            height: 825px;
+            width: 825px;
+        }
+
+        .item-content {
+            height: 100%;
+            background: black;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .item-content-half-top {
+            height: 50%;
+            background: black;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .item-content-half-bottom {
+            height: 50%;
+            background: black;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .thumbnail {
+            display: flex;
+            align-items: center;
+            margin: 5px;
+        }
+
+        img {
+            padding: 5px;
+            background: white;
+        }
+
+        img.smallH {
+            height: 250px;
+            min-height: 250px;
+            width: 375px;
+            min-width: 375px;
+        }
+
+        img.mediumH {
+            height: 375px;
+            min-height: 375px;
+            width: 575px;
+            min-width: 575px;
+        }
+
+        img.mediumV {
+            height: 575px;
+            min-height: 575px;
+            width: 375px;
+            min-width: 375px;
+        }
+
+        img.bigH {
+            height: 500px;
+            min-height: 500px;
+            width: 750px;
+            min-width: 750px;
+        }
+
+        img.bigV {
+            height: 750px;
+            min-height: 750px;
+            width: 500px;
+            min-width: 500px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="item active">
+                    <div class="item-content">
+                        <div class="thumbnail">
+                            <img src="../img/R001.jpg" class="bigH">
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-content">
+                        <div class="thumbnail">
+                            <img src="../img/R001.jpg" class="bigV">
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-content">
+                        <div class="thumbnail">
+                            <img src="../img/R001.jpg" class="mediumH">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="../img/R001.jpg" class="mediumH">
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-content">
+                        <div class="thumbnail">
+                            <img src="../img/R001.jpg" class="mediumV">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="../img/R001.jpg" class="mediumV">
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-content-half-top">
+                        <div class="thumbnail">
+                            <img src="../img/R001.jpg" class="smallH">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="../img/R002.jpg" class="smallH">
+                        </div>
+                    </div>
+                    <div class="item-content-half-bottom">
+                        <div class="thumbnail">
+                            <img src="../img/R003.jpg" class="smallH">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="../img/R004.jpg" class="smallH">
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item-content-half-top">
+                        <div class="thumbnail">
+                            <img src="../img/R001.jpg" class="mediumH">
+                        </div>
+                    </div>
+                    <div class="item-content-half-bottom">
+                        <div class="thumbnail">
+                            <img src="../img/R003.jpg" class="smallH">
+                        </div>
+                        <div class="thumbnail">
+                            <img src="../img/R004.jpg" class="smallH">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="carousel-control right" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
