@@ -1,0 +1,16 @@
+<div *ngIf="recipe">
+  <div>
+    <h3>{{recipe.name}}</h3>
+  </div>
+  <div>
+    <ul class="list-group">
+      <li *ngFor="let stepGroups of recipe.recipeStepGroups" class="list-group-item">
+        <ul class="list-group">
+          <li *ngFor="let step of stepGroups.recipeSteps" class="list-group-item">
+            {{step.formattedText}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>

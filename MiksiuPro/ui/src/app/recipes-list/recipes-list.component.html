@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-xs-4">
+    <ul class="list-group">
+      <li *ngFor="let recipe of recipes" class="list-group-item">
+        <a [routerLink]="[recipe.id]">
+          {{recipe.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="col-xs-7 col-xs-offset-1">
+    <router-outlet>
+    </router-outlet>
+  </div>
+</div>
