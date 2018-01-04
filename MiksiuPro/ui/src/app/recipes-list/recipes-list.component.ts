@@ -9,6 +9,7 @@ import {RecipeService} from '../recipe.service';
 export class RecipesListComponent implements OnInit {
 
   private recipes;
+  private filteredName = '';
 
   constructor(private recipeService: RecipeService) {
   }

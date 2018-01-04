@@ -1,7 +1,14 @@
 <div class="row">
   <div class="col-xs-4">
-    <ul class="list-group">
-      <li *ngFor="let recipe of recipes" class="list-group-item">
+    <div class="input-group">
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </span>
+      <input type="text" class="form-control" placeholder="Search" [(ngModel)]="filteredName">
+    </div>
+
+    <ul class="list-group" style="height: 85vh; overflow-y: scroll; margin-top: 5px;">
+      <li *ngFor="let recipe of recipes | filter:filteredName" class="list-group-item">
         <a [routerLink]="[recipe.id]">
           {{recipe.name}}
         </a>
