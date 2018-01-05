@@ -1,16 +1,41 @@
-<div *ngIf="recipe">
-  <div>
-    <h3>{{recipe.name}}</h3>
+<div class="panel panel-default" *ngIf="recipe">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{recipe.name}}</h3>
   </div>
-  <div>
-    <ul class="list-group">
-      <li *ngFor="let stepGroups of recipe.recipeStepGroups" class="list-group-item">
-        <ul class="list-group">
-          <li *ngFor="let step of stepGroups.recipeSteps" class="list-group-item">
-            {{step.formattedText}}
-          </li>
-        </ul>
-      </li>
-    </ul>
+
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="thumbnail">
+          <img [src]="recipe.imageSlots[0].url">
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div *ngFor="let recipeIngredientGroup of recipe.recipeIngredientGroups" class="well">
+          <ul class="list-group">
+            <li *ngFor="let ingredient of recipeIngredientGroup.recipeIngredients" class="list-group-item">
+              <span *ngIf="ingredient.quantity.value">{{ingredient.quantity.value}}</span>
+              <span *ngIf="ingredient.quantity.from">od {{ingredient.quantity.from}}</span>
+              <span *ngIf="ingredient.quantity.to">do {{ingredient.quantity.to}}</span>
+              <span>{{ingredient.recipeIngredientUnits.length > 0 ? ingredient.recipeIngredientUnits[0].notation : ''}}</span>
+              <span>{{ingredient.notation}}</span>
+              <span>{{ingredient.preparation}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <div *ngFor="let stepGroups of recipe.recipeStepGroups" class="well">
+          <ul class="list-group">
+            <li *ngFor="let step of stepGroups.recipeSteps" class="list-group-item">
+              <span [innerHTML]="step.formattedText"></span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

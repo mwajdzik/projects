@@ -13,5 +13,7 @@ public class Recipe {
     @Id
     private String id;
     private String name;
+    private ImageSlot[] imageSlots;
     private RecipeStepGroup[] recipeStepGroups;
+    private RecipeIngredientGroup[] recipeIngredientGroups;
 }
