@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Data} from '@angular/router';
+import {ActivatedRoute, Data, Router} from '@angular/router';
+import {RecipeService} from '../recipe.service';
 
 @Component({
   selector: 'app-recipe',
@@ -8,14 +9,28 @@ import {ActivatedRoute, Data} from '@angular/router';
 })
 export class RecipeComponent implements OnInit {
 
-  private recipe;
+  public recipe;
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private recipeService: RecipeService) {
   }
 
   ngOnInit() {
     this.route.data.subscribe((data: Data) => {
-      this.recipe = data['recipe'].json();
+      this.recipe = data['recipe'];
     });
+  }
+
+  removeRecipe() {
+    this.recipeService.removeRecipe(this.recipe.id).subscribe((res) => {
+      this.router.navigate(['..'], {relativeTo: this.route});
+    });
+  }
+
+  likeRecipe() {
+  }
+
+  addToShoppingCard() {
   }
 }

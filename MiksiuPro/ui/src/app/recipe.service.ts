@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Http} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class RecipeService {
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
   }
 
   getRecipes() {
@@ -13,5 +13,9 @@ export class RecipeService {
 
   getRecipeById(id: string) {
     return this.http.get('http://localhost:8080/api/v1/recipes/' + id);
+  }
+
+  removeRecipe(id: string) {
+    return this.http.delete('http://localhost:8080/api/v1/recipes/' + id);
   }
 }

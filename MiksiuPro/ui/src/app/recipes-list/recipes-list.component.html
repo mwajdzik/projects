@@ -10,7 +10,9 @@
     <ul class="list-group" style="height: 85vh; overflow-y: scroll; margin-top: 5px;">
       <li *ngFor="let recipe of recipes | filter:filteredName" class="list-group-item">
         <a [routerLink]="[recipe.id]">
-          {{recipe.name}}
+            <span style="word-wrap: break-word; max-width: 230px; display: inline-block;">{{recipe.name}}</span>
+            <span class="badge pull-right" style="background-color: red;">{{difficulty(recipe)}}</span>
+            <span class="badge pull-right" style="background-color: darkgreen; margin-right: 5px;">{{priceLevel(recipe)}}</span>
         </a>
       </li>
     </ul>
