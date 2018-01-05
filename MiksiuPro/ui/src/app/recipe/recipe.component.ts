@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Data, Router} from '@angular/router';
 import {RecipeService} from '../recipe.service';
+import {ImagesService} from '../images.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-recipe',
@@ -13,6 +15,7 @@ export class RecipeComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private router: Router,
+              private imagesService: ImagesService,
               private recipeService: RecipeService) {
   }
 
@@ -26,6 +29,12 @@ export class RecipeComponent implements OnInit {
     this.recipeService.removeRecipe(this.recipe.id).subscribe((res) => {
       this.router.navigate(['..'], {relativeTo: this.route});
     });
+  }
+
+  getImageUrl() {
+    const url = this.recipe.imageSlots[0].url;
+    const id = url.substring(_.lastIndexOf(url, '/') + 1, url.length);
+    return this.imagesService.getImageUrl(id);
   }
 
   likeRecipe() {

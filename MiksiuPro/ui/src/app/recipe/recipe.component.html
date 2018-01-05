@@ -18,13 +18,13 @@
     <div class="row">
       <div class="col-xs-6">
         <div class="thumbnail">
-          <img [src]="recipe.imageSlots[0].url">
+          <img [src]="getImageUrl()">
         </div>
       </div>
       <div class="col-xs-6">
-        <div *ngFor="let recipeIngredientGroup of recipe.recipeIngredientGroups" class="well">
+        <div *ngFor="let ingredientGroup of recipe.recipeIngredientGroups">
           <ul class="list-group">
-            <li *ngFor="let ingredient of recipeIngredientGroup.recipeIngredients" class="list-group-item">
+            <li *ngFor="let ingredient of ingredientGroup.recipeIngredients" class="list-group-item">
               <span *ngIf="ingredient.quantity.value">{{ingredient.quantity.value}}</span>
               <span *ngIf="ingredient.quantity.from">od {{ingredient.quantity.from}}</span>
               <span *ngIf="ingredient.quantity.to">do {{ingredient.quantity.to}}</span>
@@ -39,9 +39,10 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <div *ngFor="let stepGroups of recipe.recipeStepGroups" class="well">
+        <div *ngFor="let stepGroups of recipe.recipeStepGroups">
           <ul class="list-group">
-            <li *ngFor="let step of stepGroups.recipeSteps" class="list-group-item">
+            <li *ngFor="let step of stepGroups.recipeSteps; let i = index" class="list-group-item">
+              <span class="badge" style="float: left; margin-right: 5px">{{i + 1}}</span>
               <span [innerHTML]="step.formattedText"></span>
             </li>
           </ul>
