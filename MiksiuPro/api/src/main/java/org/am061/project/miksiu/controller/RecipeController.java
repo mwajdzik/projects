@@ -41,7 +41,7 @@ public class RecipeController {
     }
 
     @PutMapping("/recipes/{id}")
-    public Mono<ResponseEntity<Recipe>> updateTweet(@PathVariable(value = "id") String id, @Valid @RequestBody Recipe recipe) {
+    public Mono<ResponseEntity<Recipe>> updateRecipe(@PathVariable(value = "id") String id, @Valid @RequestBody Recipe recipe) {
         return recipeRepository.findById(id)
                 .flatMap(existingRecipe -> {
                     existingRecipe.setName(recipe.getName());
@@ -52,12 +52,8 @@ public class RecipeController {
     }
 
     @DeleteMapping("/recipes/{id}")
-    public Mono<ResponseEntity<Void>> deleteRecipe(@PathVariable(value = "id") String id) {
-        return recipeRepository.findById(id)
-                .flatMap(existingRecipe ->
-                        recipeRepository.delete(existingRecipe).then(Mono.just(new ResponseEntity<Void>(OK)))
-                )
-                .defaultIfEmpty(new ResponseEntity<>(NOT_FOUND));
+    public Mono<Void> deleteRecipe(@PathVariable(value = "id") String id) {
+        return recipeRepository.deleteById(id);
     }
 
     @GetMapping(value = "/stream/recipes", produces = TEXT_EVENT_STREAM_VALUE)
