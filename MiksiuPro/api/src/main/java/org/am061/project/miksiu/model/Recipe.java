@@ -15,7 +15,9 @@ public class Recipe {
     private String name;
     private String difficulty;
     private String priceLevel;
+    private Category primaryCategory;
     private ImageSlot[] imageSlots;
+    private AdditionalInformation[] additionalInformations;
     private RecipeStepGroup[] recipeStepGroups;
     private RecipeIngredientGroup[] recipeIngredientGroups;
 }

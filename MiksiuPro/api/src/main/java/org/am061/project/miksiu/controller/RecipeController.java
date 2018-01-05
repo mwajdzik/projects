@@ -25,7 +25,7 @@ public class RecipeController {
 
     @GetMapping("/recipes")
     public Flux<Recipe> getAllRecipes() {
-        return recipeRepository.findAll();
+        return recipeRepository.findRecipesShallow();
     }
 
     @PostMapping("/recipes")
