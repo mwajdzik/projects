@@ -1,3 +1,12 @@
 body {
   padding-top: 40px;
 }
+
+.additional-information li {
+  list-style: none;
+}
+
+.additional-information ul {
+  padding-left: 0;
+}
+

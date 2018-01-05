@@ -13,6 +13,7 @@ import {FilterPipe} from './recipes-list/filter.pipe';
 import {ImagesService} from './images.service';
 
 const appRoutes: Routes = [
+  {path: '', redirectTo: 'recipes', pathMatch: 'full'},
   {
     path: 'recipes', component: RecipesListComponent, children: [
       {path: ':id', component: RecipeComponent, resolve: {recipe: RecipeResolverService}}

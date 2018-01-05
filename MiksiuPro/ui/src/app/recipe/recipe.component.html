@@ -1,7 +1,8 @@
 <div class="panel panel-default" *ngIf="recipe">
   <div class="panel-heading">
     <h3 class="panel-title">
-      <span>{{recipe.name}}</span>
+      <span class="badge">{{recipe.primaryCategory.title}}</span>
+      <span style="margin-left: 5px">{{recipe.name}}</span>
       <a class="pull-right" style="cursor: pointer; margin-right: 5px; font-size: 1.2em;" (click)="addToShoppingCard()">
         <span class="glyphicon glyphicon-shopping-cart"></span>
       </a>
@@ -47,6 +48,16 @@
             </li>
           </ul>
         </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="list-group">
+          <li *ngFor="let additionalInformation of recipe.additionalInformations" class="list-group-item">
+            <span class="additional-information" [innerHTML]="additionalInformation.information"></span>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
