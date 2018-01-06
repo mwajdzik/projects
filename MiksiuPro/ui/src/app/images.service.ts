@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
+import {environment} from '../environments/environment';
 
 @Injectable()
 export class ImagesService {
 
   getImageUrl(id: string) {
-    return 'http://localhost:8080/images?id=' + id;
+    return environment.api + '/images?id=' + id;
   }
 }

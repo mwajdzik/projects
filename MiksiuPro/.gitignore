@@ -2,3 +2,4 @@
 target
 
 *.iml
+api/src/main/resources/static
