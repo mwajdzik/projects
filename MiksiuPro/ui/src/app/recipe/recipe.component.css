@@ -1,0 +1,9 @@
+.header-button {
+  cursor: pointer;
+  margin-right: 5px;
+  font-size: 1.2em;
+}
+
+.badge.header-badge {
+  color: limegreen;
+}
