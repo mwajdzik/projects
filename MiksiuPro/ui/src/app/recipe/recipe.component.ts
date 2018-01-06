@@ -37,6 +37,32 @@ export class RecipeComponent implements OnInit {
     return this.imagesService.getImageUrl(id);
   }
 
+  priceLevel(recipe) {
+    switch (recipe.priceLevel) {
+      case 'LOW':
+        return '$';
+      case 'MEDIUM':
+        return '$ $';
+      case 'HIGH':
+        return '$ $ $';
+      default:
+        return recipe.priceLevel;
+    }
+  }
+
+  difficulty(recipe) {
+    switch (recipe.difficulty) {
+      case 'EASY':
+        return 'Łatwy';
+      case 'MEDIUM':
+        return 'Średni';
+      case 'ADVANCED':
+        return 'Trudny';
+      default:
+        return recipe.difficulty;
+    }
+  }
+
   likeRecipe() {
   }
 

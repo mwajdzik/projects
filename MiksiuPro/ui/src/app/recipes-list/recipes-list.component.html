@@ -1,20 +1,18 @@
 <div class="row">
   <div class="col-xs-3">
-    <div class="input-group">
+    <div class="input-group" style="padding-bottom: 7px;">
       <span class="input-group-addon">
         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
       </span>
       <input type="text" class="form-control" placeholder="Search" [(ngModel)]="filteredName">
     </div>
 
-    <ul class="list-group" style="height: 85vh; overflow-y: scroll; margin-top: 5px;">
-      <li *ngFor="let recipe of recipes | filter:filteredName" class="list-group-item">
+    <ul class="list-group" style="height: 85vh; overflow-y: scroll;">
+      <div *ngFor="let recipe of recipes | filter:filteredName" class="list-group-item">
         <a [routerLink]="[recipe.id]">
             <span style="word-wrap: break-word; max-width: 230px; display: inline-block;">{{recipe.name}}</span>
-            <span class="badge pull-right" style="background-color: red;">{{difficulty(recipe)}}</span>
-            <span class="badge pull-right" style="background-color: darkgreen; margin-right: 5px;">{{priceLevel(recipe)}}</span>
         </a>
-      </li>
+      </div>
     </ul>
   </div>
 

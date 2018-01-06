@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {RecipeService} from '../recipe.service';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'app-recipes-list',
@@ -16,23 +17,8 @@ export class RecipesListComponent implements OnInit {
 
   ngOnInit() {
     this.recipeService.getRecipes()
-      .subscribe(res => this.recipes = res);
-  }
-
-  priceLevel(recipe) {
-    switch (recipe.priceLevel) {
-      case 'LOW':
-        return '$';
-      case 'MEDIUM':
-        return '$ $';
-      case 'HIGH':
-        return '$ $ $';
-      default:
-        return recipe.priceLevel;
-    }
-  }
-
-  difficulty(recipe) {
-    return recipe.difficulty && recipe.difficulty[0];
+      .subscribe(res => {
+        this.recipes = _.sortBy(res, 'name');
+      });
   }
 }

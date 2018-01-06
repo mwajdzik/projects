@@ -1,8 +1,11 @@
 <div class="panel panel-default" *ngIf="recipe">
   <div class="panel-heading">
     <h3 class="panel-title">
+      <span class="badge" style="color: limegreen">{{priceLevel(recipe)}}</span>
+      <span class="badge" style="color: limegreen">{{difficulty(recipe)}}</span>
       <span class="badge">{{recipe.primaryCategory.title}}</span>
-      <span style="margin-left: 5px">{{recipe.name}}</span>
+      <span style="margin-left: 5px;">{{recipe.name}}</span>
+
       <a class="pull-right" style="cursor: pointer; margin-right: 5px; font-size: 1.2em;" (click)="addToShoppingCard()">
         <span class="glyphicon glyphicon-shopping-cart"></span>
       </a>
