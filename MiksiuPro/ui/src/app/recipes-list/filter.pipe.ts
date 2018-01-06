@@ -12,8 +12,8 @@ export class FilterPipe implements PipeTransform {
     }
 
     return _.filter(value, (recipe) => {
-      const nameMatches = recipe.name && recipe.name.indexOf(filterString) !== -1;
-      const categoryMatches = recipe.primaryCategory && recipe.primaryCategory.title.indexOf(filterString) !== -1;
+      const nameMatches = recipe.name && _.toUpper(recipe.name).indexOf(_.toUpper(filterString)) !== -1;
+      const categoryMatches = recipe.primaryCategory && _.toUpper(recipe.primaryCategory.title).indexOf(_.toUpper(filterString)) !== -1;
       return nameMatches || categoryMatches;
     });
   }
