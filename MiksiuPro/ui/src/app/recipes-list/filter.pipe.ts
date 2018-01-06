@@ -12,7 +12,9 @@ export class FilterPipe implements PipeTransform {
     }
 
     return _.filter(value, (recipe) => {
-      return recipe.name && recipe.name.indexOf(filterString) !== -1;
+      const nameMatches = recipe.name && recipe.name.indexOf(filterString) !== -1;
+      const categoryMatches = recipe.primaryCategory && recipe.primaryCategory.title.indexOf(filterString) !== -1;
+      return nameMatches || categoryMatches;
     });
   }
 }

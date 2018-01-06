@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Quantity {
 
-    private Integer value;
-    private Integer from;
-    private Integer to;
+    private Double value;
+    private Double from;
+    private Double to;
 }
