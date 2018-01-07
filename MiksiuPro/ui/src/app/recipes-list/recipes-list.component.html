@@ -7,16 +7,16 @@
       <input type="text" class="form-control" placeholder="Search" [(ngModel)]="filteredName">
     </div>
 
-    <ul class="list-group" style="height: 92vh; overflow-y: scroll;">
+    <ul class="list-group" style="overflow-y: scroll;" appAdjustHeight="recipe-details">
       <div *ngFor="let recipe of recipes | filter:filteredName" class="list-group-item">
         <a [routerLink]="[recipe.id]">
-            <span style="word-wrap: break-word; max-width: 230px; display: inline-block;">{{recipe.name}}</span>
+          <span style="word-wrap: break-word; max-width: 230px; display: inline-block;">{{recipe.name}}</span>
         </a>
       </div>
     </ul>
   </div>
 
-  <div class="col-xs-9">
+  <div class="col-xs-9" id="recipe-details">
     <router-outlet>
     </router-outlet>
   </div>

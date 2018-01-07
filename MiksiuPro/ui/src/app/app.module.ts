@@ -11,6 +11,7 @@ import {RecipeService} from './recipe.service';
 import {RecipeResolverService} from './recipe/recipe-resolver.service';
 import {FilterPipe} from './recipes-list/filter.pipe';
 import {ImagesService} from './images.service';
+import { AdjustHeightDirective } from './adjust-height.directive';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'recipes', pathMatch: 'full'},
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
     AppComponent,
     RecipeComponent,
     RecipesListComponent,
-    FilterPipe
+    FilterPipe,
+    AdjustHeightDirective
   ],
   imports: [
     HttpClientModule,
