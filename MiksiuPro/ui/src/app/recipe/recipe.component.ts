@@ -63,6 +63,14 @@ export class RecipeComponent implements OnInit {
     }
   }
 
+  timeActive() {
+    return _.find(this.recipe.times, {type: 'ACTIVE_TIME'}).value / 60;
+  }
+
+  timeTotal() {
+    return _.find(this.recipe.times, {type: 'TOTAL_TIME'}).value / 60;
+  }
+
   likeRecipe() {
   }
 

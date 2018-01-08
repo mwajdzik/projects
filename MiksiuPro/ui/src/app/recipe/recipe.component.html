@@ -1,10 +1,20 @@
 <div class="panel panel-default" style="margin-bottom: 0;" *ngIf="recipe">
   <div class="panel-heading">
     <h3 class="panel-title">
-      <span class="badge header-badge">{{priceLevel(recipe)}}</span>
-      <span class="badge header-badge">{{difficulty(recipe)}}</span>
-      <span class="badge">{{recipe.primaryCategory.title}}</span>
       <span style="margin-left: 5px;">{{recipe.name}}</span>
+      <span class="badge">{{priceLevel(recipe)}}</span>
+      <span class="badge">{{difficulty(recipe)}}</span>
+      <span class="badge">
+        <span class="glyphicon glyphicon-cutlery"></span>
+        <span>{{recipe.portion.value}}</span>
+      </span>
+      <span class="badge">
+        <span class="glyphicon glyphicon-time"></span>
+        <span>{{timeActive()}}</span>
+        <span>/</span>
+        <span>{{timeTotal()}}</span>
+      </span>
+      <span class="badge">{{recipe.primaryCategory.title}}</span>
 
       <a class="pull-right header-button" (click)="addToShoppingCard()">
         <span class="glyphicon glyphicon-shopping-cart"></span>
