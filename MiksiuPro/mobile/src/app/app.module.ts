@@ -8,11 +8,13 @@ import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 import {HttpClientModule} from "@angular/common/http";
 import {RecipeProvider} from "../providers/recipe/recipe";
+import {FilterPipe} from "../pipes/filter/filter";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    FilterPipe
   ],
   imports: [
     HttpClientModule,

@@ -4,13 +4,13 @@
   </ion-navbar>
   <ion-item>
     <ion-label color="primary">Search</ion-label>
-    <ion-input placeholder=""></ion-input>
+    <ion-input placeholder="" [(ngModel)]="searchString"></ion-input>
   </ion-item>
 </ion-header>
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let recipe of recipes" (click)="recipeSelected(recipe)">
+    <button ion-item *ngFor="let recipe of recipes | filter:searchString:'name'" (click)="recipeSelected(recipe)">
       {{ recipe.name }}
     </button>
   </ion-list>
