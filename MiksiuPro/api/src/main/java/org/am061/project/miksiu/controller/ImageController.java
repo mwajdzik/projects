@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.net.URL;
 
 @Controller
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class ImageController {
 
     @ResponseBody

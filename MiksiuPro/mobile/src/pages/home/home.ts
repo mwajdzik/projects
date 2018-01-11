@@ -1,14 +1,24 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavController} from 'ionic-angular';
+import {RecipeProvider} from "../../providers/recipe/recipe";
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-  constructor(public navCtrl: NavController) {
+  recipes;
 
+  constructor(public navCtrl: NavController, private recipeService: RecipeProvider) {
   }
 
+  ngOnInit() {
+    this.recipeService.getRecipes().subscribe((recipes) => {
+      this.recipes = recipes;
+    });
+  }
+
+  recipeSelected(recipe) {
+  }
 }
