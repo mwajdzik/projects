@@ -14,7 +14,9 @@
         <span>/</span>
         <span>{{timeTotal()}}</span>
       </span>
-      <span class="badge">{{recipe.primaryCategory.title}}</span>
+      <span class="badge" [ngStyle]="{'background-color': recipe.primaryCategory.colorCode}">
+        {{recipe.primaryCategory.title}}
+      </span>
 
       <a class="pull-right header-button" (click)="addToShoppingCard()">
         <span class="glyphicon glyphicon-shopping-cart"></span>

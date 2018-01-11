@@ -10,7 +10,7 @@
     <ul class="list-group" style="overflow-y: scroll;" appAdjustHeight="recipe-details">
       <div *ngFor="let recipe of recipes | filter:filteredName" class="list-group-item">
         <a [routerLink]="[recipe.id]">
-          <span style="word-wrap: break-word; max-width: 230px; display: inline-block;">{{recipe.name}}</span>
+          <span>{{recipe.name}}</span>
         </a>
       </div>
     </ul>

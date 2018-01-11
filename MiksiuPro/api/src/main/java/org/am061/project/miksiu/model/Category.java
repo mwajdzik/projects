@@ -6,4 +6,5 @@ import lombok.Data;
 public class Category {
 
     private String title;
+    private String colorCode;
 }
