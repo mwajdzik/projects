@@ -3,6 +3,7 @@ import {NavController} from 'ionic-angular';
 import {RecipeProvider} from "../../providers/recipe/recipe";
 
 import * as _ from 'lodash';
+import {RecipePage} from "../recipe/recipe";
 
 @Component({
   selector: 'page-home',
@@ -24,5 +25,6 @@ export class HomePage {
   }
 
   recipeSelected(recipe) {
+    this.navCtrl.push(RecipePage, recipe);
   }
 }

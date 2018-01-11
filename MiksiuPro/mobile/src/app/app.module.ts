@@ -9,11 +9,13 @@ import {HomePage} from '../pages/home/home';
 import {HttpClientModule} from "@angular/common/http";
 import {RecipeProvider} from "../providers/recipe/recipe";
 import {FilterPipe} from "../pipes/filter/filter";
+import {RecipePage} from "../pages/recipe/recipe";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
+    RecipePage,
     FilterPipe
   ],
   imports: [
@@ -26,6 +28,7 @@ import {FilterPipe} from "../pipes/filter/filter";
   ],
   entryComponents: [
     MyApp,
+    RecipePage,
     HomePage
   ],
   providers: [
