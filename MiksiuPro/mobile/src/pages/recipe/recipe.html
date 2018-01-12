@@ -1,27 +1,53 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>{{ recipe.name }}</ion-title>
+    <ion-title></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <ion-card>
+    <ion-item>
+      <h1 text-wrap padding-bottom>{{ recipe.name }}</h1>
+
+      <ion-row>
+        <ion-col>
+          <ion-badge [ngStyle]="{'background-color': recipe.primaryCategory.colorCode}">
+            {{ recipe.primaryCategory.title }}
+          </ion-badge>
+        </ion-col>
+        <ion-col text-right>
+          <ion-badge color="light">{{ priceLevel(recipe) }}</ion-badge>
+          <ion-badge color="light">{{ difficulty(recipe) }}</ion-badge>
+          <ion-badge color="light">
+            <ion-icon name="pizza"></ion-icon>
+            {{ recipe.portion.value }}
+          </ion-badge>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-card>
+
   <ion-card *ngFor="let ingredientGroup of recipe.recipeIngredientGroups">
     <ion-card-content>
-      <div *ngFor="let ingredient of ingredientGroup.recipeIngredients">
-        {{ getIngredientText(ingredient) }}
-      </div>
+      <ul>
+        <li *ngFor="let ingredient of ingredientGroup.recipeIngredients">
+          {{ getIngredientText(ingredient) }}
+        </li>
+      </ul>
     </ion-card-content>
   </ion-card>
 
   <ion-card *ngFor="let stepGroups of recipe.recipeStepGroups">
     <ion-card-content>
-      <div *ngFor="let step of stepGroups.recipeSteps; let i = index">
-        <span [innerHtml]="step.formattedText"></span>
-      </div>
+      <ol>
+        <li *ngFor="let step of stepGroups.recipeSteps; let i = index">
+          <span [innerHtml]="step.formattedText"></span>
+        </li>
+      </ol>
     </ion-card-content>
   </ion-card>
 
-  <ion-card *ngIf="recipe.additionalInformations">
+  <ion-card *ngIf="recipe.additionalInformations.length > 0">
     <ion-card-content>
       <div *ngFor="let additionalInformation of recipe.additionalInformations" class="list-group-item">
         <span [innerHtml]="additionalInformation.information"></span>

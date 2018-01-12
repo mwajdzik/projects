@@ -8,17 +8,17 @@ import {MyApp} from './app.component';
 import {HomePage} from '../pages/home/home';
 import {HttpClientModule} from "@angular/common/http";
 import {RecipeProvider} from "../providers/recipe/recipe";
-import {FilterPipe} from "../pipes/filter/filter";
 import {RecipePage} from "../pages/recipe/recipe";
+import {PipesModule} from "../pipes/pipes.module";
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    RecipePage,
-    FilterPipe
+    RecipePage
   ],
   imports: [
+    PipesModule,
     HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)

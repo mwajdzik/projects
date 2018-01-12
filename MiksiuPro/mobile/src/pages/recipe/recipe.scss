@@ -1,2 +1,17 @@
 page-recipe {
+  ol, ul {
+    padding-left: 20px;
+  }
+
+  ol li {
+    padding-bottom: 10px;
+  }
+
+  ion-col.col {
+    padding: 1px;
+
+    ion-badge {
+      font-size: 1.4rem;
+    }
+  }
 }

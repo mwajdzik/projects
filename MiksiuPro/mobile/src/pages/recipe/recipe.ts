@@ -1,22 +1,23 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {Component, OnInit} from '@angular/core';
+import {NavController, NavParams} from 'ionic-angular';
 import {RecipeProvider} from "../../providers/recipe/recipe";
 
-@IonicPage()
 @Component({
   selector: 'page-recipe',
   templateUrl: 'recipe.html',
 })
-export class RecipePage {
+export class RecipePage implements OnInit {
 
   recipe = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private recipeService: RecipeProvider) {
   }
 
-  ionViewDidLoad() {
+  ngOnInit() {
     this.recipeService.getRecipeById(this.navParams.data.id)
-      .subscribe((recipe) => this.recipe = recipe);
+      .subscribe((recipe) => {
+        this.recipe = recipe;
+      });
   }
 
   getIngredientText(ingredient) {
@@ -47,5 +48,31 @@ export class RecipePage {
     }
 
     return result;
+  }
+
+  priceLevel(recipe) {
+    switch (recipe.priceLevel) {
+      case 'LOW':
+        return '$';
+      case 'MEDIUM':
+        return '$ $';
+      case 'HIGH':
+        return '$ $ $';
+      default:
+        return recipe.priceLevel;
+    }
+  }
+
+  difficulty(recipe) {
+    switch (recipe.difficulty) {
+      case 'EASY':
+        return 'Łatwy';
+      case 'MEDIUM':
+        return 'Średni';
+      case 'ADVANCED':
+        return 'Trudny';
+      default:
+        return recipe.difficulty;
+    }
   }
 }
