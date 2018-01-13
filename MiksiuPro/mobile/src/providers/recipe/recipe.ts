@@ -1,4 +1,3 @@
-import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 
 import * as _ from 'lodash';
@@ -11,15 +10,30 @@ export class RecipeProvider {
 
   private recipes;
   private preview;
+  private categories;
 
-  constructor(public http: HttpClient) {
+  constructor() {
     this.recipes = _.keyBy(data, (r) => {
       return r.id;
     });
 
+    this.categories = _.sortBy(_.uniq(_.map(data, (r) => {
+      return r.primaryCategory.title;
+    })));
+
     this.preview = _.map(data, (r) => {
-      return {id: r.id, name: r.name}
+      return {id: r.id, name: r.name, category: r.primaryCategory.title}
     });
+  }
+
+  getCategories() {
+    return Observable.create((observer: Observer<any>) => observer.next(this.categories));
+  }
+
+  getRecipesByCategory(categoryName: string) {
+    return Observable.create((observer: Observer<any>) => observer.next(_.filter(this.preview, (r) => {
+      return r.category === categoryName;
+    })));
   }
 
   getRecipes() {

@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-item>
+    <ion-label color="primary"></ion-label>
+    <ion-input placeholder="Szukaj" [(ngModel)]="searchString"></ion-input>
+  </ion-item>
+</ion-header>
+
+<ion-content padding>
+  <ion-list [virtualScroll]="recipes | filter:searchString:'name'">
+    <button ion-item *virtualItem="let recipe" (click)="recipeSelected(recipe)">
+      {{ recipe.name }}
+    </button>
+  </ion-list>
+</ion-content>

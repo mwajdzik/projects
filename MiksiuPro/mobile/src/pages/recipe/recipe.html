@@ -1,14 +1,10 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title></ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
   <ion-card>
     <ion-item>
-      <h1 text-wrap padding-bottom>{{ recipe.name }}</h1>
-
+      <h1 text-wrap>{{ recipe.name }}</h1>
+    </ion-item>
+    <img [src]="recipe.imageSlots">
+    <ion-item>
       <ion-row>
         <ion-col>
           <ion-badge [ngStyle]="{'background-color': recipe.primaryCategory.colorCode}">

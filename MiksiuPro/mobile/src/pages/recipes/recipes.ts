@@ -1,24 +1,28 @@
 import {Component} from '@angular/core';
-import {NavController} from 'ionic-angular';
+import {NavController, NavParams} from 'ionic-angular';
 import {RecipeProvider} from "../../providers/recipe/recipe";
 
 import * as _ from 'lodash';
 import {RecipePage} from "../recipe/recipe";
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-recipes',
+  templateUrl: 'recipes.html'
 })
-export class HomePage {
+export class RecipesPage {
 
   recipes: any = [];
   searchString = '';
 
-  constructor(public navCtrl: NavController, private recipeService: RecipeProvider) {
+  constructor(public navCtrl: NavController,
+              public navParams: NavParams,
+              private recipeService: RecipeProvider) {
   }
 
   ionViewDidLoad() {
-    this.recipeService.getRecipes()
+    let category = this.navParams.data;
+
+    this.recipeService.getRecipesByCategory(category)
       .subscribe((recipes) => {
         return this.recipes = _.sortBy(recipes, 'name');
       });

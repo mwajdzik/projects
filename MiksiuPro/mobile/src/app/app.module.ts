@@ -5,21 +5,21 @@ import {SplashScreen} from '@ionic-native/splash-screen';
 import {StatusBar} from '@ionic-native/status-bar';
 
 import {MyApp} from './app.component';
-import {HomePage} from '../pages/home/home';
-import {HttpClientModule} from "@angular/common/http";
 import {RecipeProvider} from "../providers/recipe/recipe";
 import {RecipePage} from "../pages/recipe/recipe";
 import {PipesModule} from "../pipes/pipes.module";
+import {CategoriesPage} from "../pages/categories/categories";
+import {RecipesPage} from "../pages/recipes/recipes";
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
+    CategoriesPage,
+    RecipesPage,
     RecipePage
   ],
   imports: [
     PipesModule,
-    HttpClientModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -29,7 +29,8 @@ import {PipesModule} from "../pipes/pipes.module";
   entryComponents: [
     MyApp,
     RecipePage,
-    HomePage
+    CategoriesPage,
+    RecipesPage
   ],
   providers: [
     StatusBar,

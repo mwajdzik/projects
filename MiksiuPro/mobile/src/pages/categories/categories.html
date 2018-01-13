@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title text-center>Kategorie</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <button ion-item *ngFor="let category of categories" (click)="categorySelected(category)">
+      {{ category }}
+    </button>
+  </ion-list>
+</ion-content>
