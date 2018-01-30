@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {TickerService} from './ticker/ticker.service';
-import {Ticker} from './model/ticker';
+import {Category} from './model/category';
+
+import 'rxjs/operator/map';
 
 @Component({
   selector: 'app-root',
@@ -9,30 +11,15 @@ import {Ticker} from './model/ticker';
 })
 export class AppComponent implements OnInit {
 
-  data: any;
+  items: Category[];
 
   constructor(private tickerService: TickerService) {
   }
 
   ngOnInit() {
-    this.data = this.tickerService.getAllTickers();
-  }
-
-  onRankUp(ticker: Ticker) {
-    ticker.rankUp();
-  }
-
-  onRankDown(ticker: Ticker) {
-    ticker.rankDown();
-  }
-
-  getColor(ticker: Ticker) {
-    if (ticker.ranking < 0) {
-      return 'black';
-    } else if (ticker.ranking < 3) {
-      return 'orange';
-    } else {
-      return 'green';
-    }
+    this.tickerService.getCategories()
+      .subscribe((items: Category[]) => {
+        this.items = items;
+      });
   }
 }
