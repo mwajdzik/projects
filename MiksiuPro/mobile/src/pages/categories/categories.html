@@ -1,13 +1,20 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title text-center>Kategorie</ion-title>
-  </ion-navbar>
+  <ion-item style="margin-bottom: 8px;">
+    <ion-label color="primary"></ion-label>
+    <ion-input placeholder="Szukaj" [(ngModel)]="searchString"></ion-input>
+  </ion-item>
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
+  <ion-list *ngIf="!recipesMode(searchString)">
     <button ion-item *ngFor="let category of categories" (click)="categorySelected(category)">
       {{ category }}
+    </button>
+  </ion-list>
+
+  <ion-list *ngIf="recipesMode(searchString)">
+    <button ion-item *ngFor="let recipe of recipes" (click)="recipeSelected(recipe)">
+      {{ recipe.name }}
     </button>
   </ion-list>
 </ion-content>

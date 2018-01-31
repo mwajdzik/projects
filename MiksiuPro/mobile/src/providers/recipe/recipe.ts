@@ -4,6 +4,7 @@ import * as _ from 'lodash';
 import * as data from '../../data/data.json';
 import {Observable} from "rxjs/Observable";
 import {Observer} from "rxjs/Observer";
+import {FilterPipe} from "../../pipes/filter/filter";
 
 @Injectable()
 export class RecipeProvider {
@@ -34,6 +35,11 @@ export class RecipeProvider {
     return Observable.create((observer: Observer<any>) => observer.next(_.filter(this.preview, (r) => {
       return r.category === categoryName;
     })));
+  }
+
+  getRecipesByName(name: string) {
+    const filter = new FilterPipe();
+    return filter.transform(this.preview, name, 'name');
   }
 
   getRecipes() {

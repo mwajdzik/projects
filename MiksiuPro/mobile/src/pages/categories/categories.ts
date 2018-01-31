@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, DoCheck} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {RecipeProvider} from "../../providers/recipe/recipe";
 import {RecipePage} from "../recipe/recipe";
@@ -10,9 +10,11 @@ import * as _ from 'lodash';
   selector: 'page-categories',
   templateUrl: 'categories.html'
 })
-export class CategoriesPage {
+export class CategoriesPage implements DoCheck {
 
   categories: any = [];
+  recipes: any = [];
+  searchString = '';
 
   constructor(public navCtrl: NavController, private recipeService: RecipeProvider) {
   }
@@ -24,11 +26,21 @@ export class CategoriesPage {
       });
   }
 
+  ngDoCheck(): void {
+    if (this.recipesMode(this.searchString) ) {
+      this.recipes = this.recipeService.getRecipesByName(this.searchString);
+    }
+  }
+
   recipeSelected(recipe) {
     this.navCtrl.push(RecipePage, recipe);
   }
 
   categorySelected(category) {
     this.navCtrl.push(RecipesPage, category);
+  }
+
+  recipesMode(searchString: string) {
+    return searchString && searchString.length >= 3;
   }
 }
