@@ -1,8 +1,6 @@
 <script>
     var observed = [
-        "eurpln", "usdpln", "chfpln", 
-        "nokpln", "eurusd", "eurchf",
-        "jpypln", "gbppln", "btcusd",
+        "gc.f"
     ];
     var pepb = false;
 </script>
@@ -58,7 +56,7 @@
     <script>
         observed.forEach(function(stock) {
             var html = '<div class="col-sm">' + 
-                '<a href="https://stooq.pl/q/?s=' + stock + '">' + 
+                '<a href="https://stooq.pl/q/a2/?s=' + stock + '&i=d&t=c&a=lg&z=433&l=0&d=1&ch=1&f=1&lt=57&r=0&o=1">' + 
                 '<img src="https://stooq.pl/c/?s=' + stock + '&c=1y&t=c&a=lg" alt="' + stock + '">' + 
                 '</a>' + 
                 '</div>'; 

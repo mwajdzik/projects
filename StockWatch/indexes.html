@@ -1,5 +1,9 @@
 <script>
-    var observed = ["wig_banki", "wig_energ", "wig_energ", "wig_budow", "wig_nrchom", "wig_info", "wig_paliwa", "wig_chemia", "wig_gornic"];
+    var observed = [
+        "wig20", "wig20tr", "mwig40", "mwig40tr", "swig80", "swig80tr",
+
+        "wig_banki", "wig_leki", "wig_energ", "wig_budow", "wig_nrchom", "wig_info", "wig_paliwa", "wig_chemia", "wig_gornic"
+    ];
     var pepb = true;
 </script>
 
@@ -53,7 +57,11 @@
 
     <script>
         observed.forEach(function(stock) {
-            var html = '<div class="col-sm"><img src="https://stooq.pl/c/?s=' + stock + '&c=1y&t=c&a=lg" alt="' + stock + '"></div>'; 
+            var html = '<div class="col-sm">' + 
+                '<a href="https://stooq.pl/q/a2/?s=' + stock + '&i=d&t=c&a=lg&z=433&l=0&d=1&ch=1&f=1&lt=57&r=0&o=1">' + 
+                '<img src="https://stooq.pl/c/?s=' + stock + '&c=1y&t=c&a=lg" alt="' + stock + '">' + 
+                '</a>' + 
+                '</div>'; 
 
             if (pepb) {
                 html += '<div class="col-sm"><img src="https://stooq.pl/c/?s=' + stock + '_pe&c=5y&t=c&a=lg" alt="' + stock + '_pe"></div>' + 
