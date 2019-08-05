@@ -9,18 +9,31 @@
         {
             name: 'Do Kupienia',
             observed: [
-                { code: 'KRU', name: 'Kruk' },
             ]
         },
         {
             name: 'Co się dzieje',
             observed: [
                 { code: 'WIG', name: 'WIG' },
+                { code: '^SPX', name: 'S&P 500 - U.S.' },
+                { code: '^DAX', name: 'DAX Index - Germany' },
                 { code: '10PLY.B', name: '10-Year Poland Bond Yield' },
+                { code: '10USY.B', name: '10-Year U.S. Bond Yield' },
+                { code: '10DEY.B', name: '10-Year German Bond Yield' },
             ]
         },
         {
-            name: 'GPW',
+            name: 'Waluty',
+            observed: [
+                { code: 'USDPLN', name: 'USDPLN' },
+                { code: 'EURPLN', name: 'EURPLN' },
+                { code: 'CHFPLN', name: 'CHFPLN' },
+                { code: 'NOKPLN', name: 'NOKPLN' },
+                { code: 'SEKPLN', name: 'SEKPLN' },
+            ]
+        },
+        {
+            name: 'GPW Indeksy',
             observed: [
                 { code: 'WIG20', name: 'WIG20' },
                 { code: 'WIG20TR', name: 'WIG20TR' },
@@ -31,11 +44,31 @@
                 { code: 'SWIG80', name: 'SWIG80' },
                 { code: 'SWIG80TR', name: 'SWIG80TR' },
                 { code: 'SWIG80_PE', name: 'SWIG80_PE' },
+                { code: 'WIG20Short', name: 'WIG20Short' },
+            ]
+        },
+        {
+            name: 'GPW Branże',
+            observed: [
+                { code: 'WIG_BANKI', name: 'WIG_BANKI' },
+                { code: 'WIG_ENERG', name: 'WIG_ENERG' },
+                { code: 'WIG_PALIWA', name: 'WIG_PALIWA' },
+                { code: 'WIG_CHEMIA', name: 'WIG_CHEMIA' },
+                { code: 'WIG_GAMES', name: 'WIG_GAMES' },
+                { code: 'WIG_NRCHOM', name: 'WIG_NRCHOM' },
+                { code: 'WIG_BUDOW', name: 'WIG_BUDOW' },
+                { code: 'WIG_GORNIC', name: 'WIG_GORNIC' },
+                { code: 'WIG_INFO', name: 'WIG_INFO' },
+                { code: 'WIG_LEKI', name: 'WIG_LEKI' },
+                { code: 'WIG_MEDIA', name: 'WIG_MEDIA' },
+                { code: 'WIG_SPOZYW', name: 'WIG_SPOZYW' },
+                { code: 'WIG_TELEKOM', name: 'WIG_TELEKOM' },
             ]
         },
         {
             name: 'Obserwowane',
             observed: [
+                { code: 'KRU', name: 'Kruk' },
                 { code: 'ALR', name: 'Alior' },
                 { code: 'EAH', name: 'Esotiq & Henderson' },
                 { code: 'CCC', name: 'CCC' },
@@ -159,6 +192,8 @@
                 <div class="card-body">
                     <div>
                         <span class="control">
+                            <span class="radio-item"><input type="radio" name="time" value="30y"> 30y</span>
+                            <span class="radio-item"><input type="radio" name="time" value="20y"> 20y</span>
                             <span class="radio-item"><input type="radio" name="time" value="10y"> 10y</span>
                             <span class="radio-item"><input type="radio" name="time" value="5y"> 5y</span>
                             <span class="radio-item"><input type="radio" name="time" value="3y" checked> 3y</span>
@@ -208,10 +243,11 @@
     }
 
     function buildCard(code, name) {
+        let title = code === name ? code : name + ' (' + code + ')'
         return `<div class="col-xl-4 col-lg-6 col-md-12">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">${name} (${code})</h5>
+                                <h5 class="card-title">${title}</h5>
                                 <a href="https://stooq.pl/q/a2/?s=${code}&i=d&t=c&a=lg&z=433&l=0&d=1&ch=1&f=1&lt=57&r=0&o=1">
                                     <img src="${imgLink(code)}" alt="${code}">
                                 </a>
