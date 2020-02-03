@@ -1,9 +1,31 @@
 <script>
+     /*
+        https://stooq.pl/q/?s=silj.us
+        https://www.bankier.pl/gielda/notowania/akcje/ASTARTA/wyniki-finansowe/skonsolidowany/roczny/standardowy
+        https://stooq.pl/q/?s=mos.us
+        https://stooq.pl/q/?s=ast&c=10y&t=c&a=ln&b=1
+        https://stooq.pl/q/?s=eems.us
+        https://independenttrader.pl/czym-jest-f-score.html
+        https://stooq.pl/q/?s=eth.v&c=10y&t=c&a=ln&b=1
+        https://independenttrader.pl/portfel-moar-czyli-fantastyczne-zyski-przy-malej-zmiennosci.html
+    */
     const data = [
+        {
+            name: 'NOW',
+            observed: [
+                { code: 'WIG20_PE', name: 'WIG20_PE' },
+                { code: 'MWIG40_PE', name: 'MWIG40_PE' },
+                { code: 'SWIG80_PE', name: 'SWIG80_PE' },
+                { code: 'USDPLN', name: 'USDPLN' },
+                { code: 'XAUUSD', name: 'Złoto' },
+                { code: 'CPIYPL.M', name: 'Inflacja' },
+            ]
+        },
         {
             name: 'Kupione',
             observed: [
                 { code: 'BETAW20TR.PL', name: 'Beta ETF WIG20TR' },
+                { code: 'BETAM40TR.PL', name: 'Beta ETF WIG40TR' },
             ]
         },
         {
@@ -12,7 +34,29 @@
             ]
         },
         {
-            name: 'Co się dzieje',
+            name: 'Obserwowane',
+            observed: [
+                { code: 'CDR', name: 'CDR' },
+                { code: 'CCC', name: 'CCC' },
+                { code: 'EAH', name: 'Esotiq & Henderson' },
+                { code: 'QRS', name: 'Quercus' },
+                { code: 'TPE', name: 'Tauron' },
+                { code: 'CIE', name: 'Ciech' },
+                { code: 'AMC', name: 'Amica' },
+                { code: 'AST', name: 'Astarta' },
+                { code: 'BHW', name: 'Handlowy' },
+                { code: 'R22', name: 'R22' },
+                { code: 'KRU', name: 'Kruk' },
+                { code: 'ASB', name: 'Asbis' },
+                { code: 'BDX', name: 'Budimex' },
+                { code: 'ATT', name: 'Azoty' },
+                { code: 'SNK', name: 'Sanok' },
+                { code: 'JSW', name: 'JSW' },
+                { code: 'CRM', name: 'PZ Cormay SA' },
+            ]
+        },
+        {
+            name: 'Co się dzieje?',
             observed: [
                 { code: 'WIG', name: 'WIG' },
                 { code: '^SPX', name: 'S&P 500 - U.S.' },
@@ -20,6 +64,9 @@
                 { code: '10PLY.B', name: '10-Year Poland Bond Yield' },
                 { code: '10USY.B', name: '10-Year U.S. Bond Yield' },
                 { code: '10DEY.B', name: '10-Year German Bond Yield' },
+            ],
+            compared: [
+                { codes: ['DX.F', '^CRY'], name: 'U.S. Dollar Index vs. CRB Commodity Index' },
             ]
         },
         {
@@ -28,6 +75,7 @@
                 { code: 'USDPLN', name: 'USDPLN' },
                 { code: 'EURPLN', name: 'EURPLN' },
                 { code: 'CHFPLN', name: 'CHFPLN' },
+                { code: 'GBPPLN', name: 'GBPPLN' },
                 { code: 'NOKPLN', name: 'NOKPLN' },
                 { code: 'SEKPLN', name: 'SEKPLN' },
             ]
@@ -45,6 +93,7 @@
                 { code: 'SWIG80TR', name: 'SWIG80TR' },
                 { code: 'SWIG80_PE', name: 'SWIG80_PE' },
                 { code: 'WIG20Short', name: 'WIG20Short' },
+                { code: 'WIG_DY', name: 'WIG DIVIDEND YIELD' },
             ]
         },
         {
@@ -62,23 +111,16 @@
                 { code: 'WIG_LEKI', name: 'WIG_LEKI' },
                 { code: 'WIG_MEDIA', name: 'WIG_MEDIA' },
                 { code: 'WIG_SPOZYW', name: 'WIG_SPOZYW' },
-                { code: 'WIG_TELEKOM', name: 'WIG_TELEKOM' },
             ]
         },
         {
-            name: 'Obserwowane',
+            name: 'Surowce',
             observed: [
-                { code: 'KRU', name: 'Kruk' },
-                { code: 'ALR', name: 'Alior' },
-                { code: 'EAH', name: 'Esotiq & Henderson' },
-                { code: 'CCC', name: 'CCC' },
-                { code: 'QRS', name: 'Quercus' },
-                { code: 'KRU', name: 'Kruk' },
-                { code: 'TPE', name: 'Tauron' },
-                { code: 'CIE', name: 'Ciech' },
-                { code: 'AMC', name: 'Amica' },
-                { code: 'SNK', name: 'Sanok' },
-                { code: 'BHW', name: 'Handlowy' },
+                { code: 'GC.F', name: 'Gold' },
+                { code: 'SI.F', name: 'Silver' },
+                { code: 'UX.F', name: 'Uranium' },
+                { code: 'CL.F', name: 'Crude Oil WTI' },
+                { code: 'HG.F', name: 'High Grade Copper' },
             ]
         },
         {
@@ -132,6 +174,12 @@
             ]
         },
         {
+            name: 'PKO',
+            observed: [
+                { code: '3401.N', name: 'PKO Parasolowy FIO Subfundusz Akcji Rynku Złota' },
+            ]
+        },
+        {
             name: 'Porównanie',
             compared: [
                 { codes: ['WIG', 'WIG20', '3959.N', '2781.N', '20684.N'], name: 'Akcje' },
@@ -149,6 +197,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Invest</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.core.min.js"></script>
     <link rel="icon" href="http://static.stooq.pl/favicon.ico">
@@ -231,25 +280,25 @@
 </body>
 
 <script>
-    function imgLink(codes) {
+    function imgLink(codes, type_override) {
         if (Array.isArray(codes)) {
             const first = codes[0]
             const rest = codes.slice(1).join('+')
 
-            return `https://stooq.pl/c/?s=${first}&c=${time}&t=${type}&a=${scale}&r=${rest}`
+            return `https://stooq.pl/c/?s=${first}&c=${time}&t=${type_override}&a=${scale}&r=${rest}`
         } else {
-            return `https://stooq.pl/c/?s=${codes}&c=${time}&t=${type}&a=${scale}`
+            return `https://stooq.pl/c/?s=${codes}&c=${time}&t=${type_override}&a=${scale}`
         }
     }
 
-    function buildCard(code, name) {
+    function buildCard(code, name, type_override) {
         let title = code === name ? code : name + ' (' + code + ')'
         return `<div class="col-xl-4 col-lg-6 col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">${title}</h5>
                                 <a href="https://stooq.pl/q/a2/?s=${code}&i=d&t=c&a=lg&z=433&l=0&d=1&ch=1&f=1&lt=57&r=0&o=1">
-                                    <img src="${imgLink(code)}" alt="${code}">
+                                    <img src="${imgLink(code, type_override)}" alt="${code}">
                                 </a>
                             </div>
                         </div>
@@ -257,18 +306,18 @@
     }
 
     function onDataTypeChange(selected) {
-        const type = _.find(data, t => t.name === selected.value);
+        const types = _.find(data, t => t.name === selected.value);
         const $stocks = $('.stocks');
 
         $stocks.empty();
 
-        (type.observed || []).forEach(function (stock) {
-            const html = buildCard(stock.code, stock.name)
+        (types.observed || []).forEach(function (stock) {
+            const html = buildCard(stock.code, stock.name, type)
             $stocks.append(html);
         });
 
-        (type.compared || []).forEach(function (group) {
-            const html = buildCard(group.codes, group.name)
+        (types.compared || []).forEach(function (group) {
+            const html = buildCard(group.codes, group.name, 'l')
             $stocks.append(html);
         });
     }
@@ -279,7 +328,7 @@
         type = $('input[name="type"]:checked').val();
 
         $(".stocks img").each(function () {
-            $(this).attr('src', imgLink($(this).attr('alt').split(',')))
+            $(this).attr('src', imgLink($(this).attr('alt').split(','), type))
         });
     });
 
